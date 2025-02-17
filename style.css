@@ -1,0 +1,27 @@
+/* Hide the default radio button */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 2%;
+  }
+  
+  /* When radio is checked, change color */
+  input[type="radio"]:checked {
+    background-color: white; /* Fill color */
+    border: 6px dashed red; /* Change border color */
+  }
+
+  #happyHeading{
+    background-color: goldenrod;
+    box-shadow: 10px 2px 3px 4px rgb(255, 255, 255);
+    width: 50%;
+    height: 50%;
+    margin-left: 25%;
+    border-radius: 20px;
+  }
