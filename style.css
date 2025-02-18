@@ -17,11 +17,79 @@ input[type="radio"] {
     border: 6px dashed red; /* Change border color */
   }
 
-  #happyHeading{
-    background-color: goldenrod;
-    box-shadow: 10px 2px 3px 4px rgb(255, 255, 255);
-    width: 50%;
-    height: 50%;
-    margin-left: 25%;
-    border-radius: 20px;
+
+  
+  .happy-burst {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Happy Text Animation */
+#happyHeading {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInBounce 10s ease-out forwards;
+}
+
+/* Confetti burst effect */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    opacity: 0;
+    animation: burst 7s ease-out forwards;
+}
+
+/* Text animation */
+@keyframes fadeInBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    75% {
+      opacity: 0.5;
+      transform: translateY(10px);
   }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Confetti explosion */
+@keyframes burst {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Generate multiple confetti pieces with CSS */
+.confetti:nth-child(1) { --x: 100px; --y: -80px; background-color: red; animation-delay: 0s; }
+.confetti:nth-child(2) { --x: -120px; --y: 90px; background-color: blue; animation-delay: 0.5s; }
+.confetti:nth-child(3) { --x: 150px; --y: -70px; background-color: green; animation-delay: 1s; }
+.confetti:nth-child(4) { --x: -140px; --y: -100px; background-color: orange; animation-delay: 1.5s; }
+.confetti:nth-child(5) { --x: 200px; --y: 110px; background-color: pink; animation-delay: 2s; }
+.confetti:nth-child(6) { --x: -110px; --y: 100px; background-color: purple; animation-delay: 2.5s; }
+.confetti:nth-child(7) { --x: 90px; --y: -90px; background-color: cyan; animation-delay: 3s; }
+.confetti:nth-child(8) { --x: -150px; --y: 150px; background-color: magenta; animation-delay: 3.5s; }
+.confetti:nth-child(9) { --x: 170px; --y: -180px; background-color: brown; animation-delay: 4s; }
+.confetti:nth-child(10) { --x: -10px; --y: 200px; background-color: gray; animation-delay: 4.5s; }
