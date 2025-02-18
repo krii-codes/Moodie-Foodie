@@ -35,7 +35,7 @@ input[type="radio"] {
     font-weight: bold;
     text-align: center;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 2rem;
     opacity: 0;
     animation: fadeInBounce 10s ease-out forwards;
 }
@@ -47,7 +47,7 @@ input[type="radio"] {
     height: 10px;
     background-color: yellow;
     border-radius: 50%;
-    opacity: 0;
+    opacity: 1;
     animation: burst 7s ease-out forwards;
 }
 
@@ -66,6 +66,7 @@ input[type="radio"] {
       transform: translateY(10px);
   }
     100% {
+        opacity: 1;
         transform: translateY(0);
     }
 }
