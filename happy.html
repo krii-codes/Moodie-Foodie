@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You're Happy! 🎉</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+     <!-- jQuery CDN -->
+
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
+     <!-- Bootstrap CSS CDN -->
+ 
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+ 
+ 
+ 
+     <!-- Bootstrap JavaScript Bundle (includes Popper.js) -->
+ 
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+ 
     <style>
         body {
             background: linear-gradient(135deg, #ffcc00, #ff8800);
@@ -47,8 +65,6 @@
             border-radius: 30px;
             padding: 8px 16px;
             font-size: 14px;
-            transition: 0.3s;
-            animation: pulse 1.5s infinite;
         }
         
         .btn-group {
@@ -86,11 +102,7 @@
             50% { color: blue; }
             100% { color: green; }
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+       
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -99,6 +111,134 @@
             0% { background: linear-gradient(135deg, #ffcc00, #ff8800); }
             50% { background: linear-gradient(135deg, #ff0000, #ff8800); }
             100% { background: linear-gradient(135deg, #ffcc00, #ff8800); }
+        }
+
+        /* Make the modal full-screen */
+        .modal-fullscreen .modal-content {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .modal-fullscreen .modal-dialog {
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+
+        /* Image should cover the full screen */
+        .scary-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            animation: shakeScary 0.5s infinite, blurGlitch 0.3s infinite;
+            
+        }
+
+
+        /*animations to make surprise scarier*/
+
+
+        .scary-modal {
+            animation: redFlicker 0.1s infinite alternate;
+        }
+
+        @keyframes redFlicker {
+
+            0%,
+            100% {
+                background-color: black;
+            }
+
+            20% {
+                background-color: red;
+            }
+
+            40% {
+                background-color: black;
+            }
+
+            60% {
+                background-color: darkred;
+            }
+
+            80% {
+                background-color: black;
+            }
+        }
+
+        @keyframes shakeScary {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-5px, 5px) rotate(-2deg);
+            }
+
+            20% {
+                transform: translate(5px, -5px) rotate(2deg);
+            }
+
+            30% {
+                transform: translate(-10px, 10px) rotate(-3deg);
+            }
+
+            40% {
+                transform: translate(10px, -10px) rotate(3deg);
+            }
+
+            50% {
+                transform: translate(-5px, 5px) rotate(-2deg);
+            }
+
+            60% {
+                transform: translate(5px, -5px) rotate(2deg);
+            }
+
+            70% {
+                transform: translate(-3px, 3px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(3px, -3px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: scale(1.5) translate(0, 0) rotate(0deg);
+            }
+        }
+
+        @keyframes blurGlitch {
+
+            0%,
+            100% {
+                filter: blur(0px);
+            }
+
+            25% {
+                filter: blur(3px);
+            }
+
+            50% {
+                filter: blur(2px);
+            }
+
+            75% {
+                filter: blur(1px);
+            }
         }
     </style>
 </head>
@@ -115,7 +255,25 @@
         
         <div class="btn-group">
             <a href="index.html" class="btn btn-success btn-custom">🔄 Retake Mood Quiz</a>
-            <a href="surprise.html" class="btn btn-warning btn-custom">🎁 Surprise Me!</a>
+            <button class="btn btn-warning btn-custom" data-bs-toggle="modal" data-bs-target="#surprise-button">
+                🎁 Surprise Me!
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="surprise-button">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content scary-modal">
+
+                <div class="modal-body p-0">
+                    <button type="button" data-bs-dismiss="modal">
+                        <img src="./images/surprise.jpg" alt="sweet surprise" class="scary-image">
+                    </button>
+
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
