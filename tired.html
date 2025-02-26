@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Happy! 🎉</title>
+
+    <!-- jQuery CDN -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+
+    <!-- Bootstrap CSS CDN -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+
+
+    <!-- Bootstrap JavaScript Bundle (includes Popper.js) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #90EE90, #00FA9A);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            animation: backgroundAnimation 5s infinite alternate;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out, shake 2s infinite alternate;
+        }
+
+        .confetti {
+            text-shadow: 0px 0px 4px #2E8B57;
+            font-size: 35px;
+            margin-bottom: 10px;
+            animation: bounce 1s infinite alternate, colorChange 3s infinite;
+        }
+
+        .food-img {
+            width: 35%;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .btn-custom {
+            font-weight: bold;
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .btn-group {
+            all: unset;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(2deg);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #00FA9A;
+            }
+
+            50% {
+                color: #298d67;
+            }
+
+            100% {
+                color: #0a9761;
+            }
+        }
+
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #099b63, #00FA9A);
+            }
+
+            50% {
+                background: linear-gradient(135deg, #2E8B57, #3cff00);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #00FA9A, #2E8B57);
+            }
+        }
+
+        /* Make the modal full-screen */
+        .modal-fullscreen .modal-content {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .modal-fullscreen .modal-dialog {
+
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+
+        /* Image should cover the full screen */
+        .scary-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            animation: shakeScary 0.5s infinite, blurGlitch 0.3s infinite;
+            
+        }
+
+
+        /*animations to make surprise scarier*/
+
+
+        .scary-modal {
+            animation: redFlicker 0.1s infinite alternate;
+        }
+
+        @keyframes redFlicker {
+
+            0%,
+            100% {
+                background-color: black;
+            }
+
+            20% {
+                background-color: red;
+            }
+
+            40% {
+                background-color: black;
+            }
+
+            60% {
+                background-color: darkred;
+            }
+
+            80% {
+                background-color: black;
+            }
+        }
+
+        @keyframes shakeScary {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-5px, 5px) rotate(-2deg);
+            }
+
+            20% {
+                transform: translate(5px, -5px) rotate(2deg);
+            }
+
+            30% {
+                transform: translate(-10px, 10px) rotate(-3deg);
+            }
+
+            40% {
+                transform: translate(10px, -10px) rotate(3deg);
+            }
+
+            50% {
+                transform: translate(-5px, 5px) rotate(-2deg);
+            }
+
+            60% {
+                transform: translate(5px, -5px) rotate(2deg);
+            }
+
+            70% {
+                transform: translate(-3px, 3px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(3px, -3px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: scale(1.5) translate(0, 0) rotate(0deg);
+            }
+        }
+
+        @keyframes blurGlitch {
+
+            0%,
+            100% {
+                filter: blur(0px);
+            }
+
+            25% {
+                filter: blur(3px);
+            }
+
+            50% {
+                filter: blur(2px);
+            }
+
+            75% {
+                filter: blur(1px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="confetti">Tired? Recharge Your Energy! ⚡</h1>
+        <p>Your body needs a break, and the right food can bring back your energy!</p>
+
+        <h4>Banana Shake & Peanut Butter Toast 🍌🥜</h4>
+        <img src="/images/tiring image.jpg" alt="Pani Puri" class="food-img">
+
+        <p><b>Fun Fact:</b> Bananas are rich in potassium, which helps fight fatigue instantly!</p>
+        <p><b>Mood Booster:</b> Take a 10-minute power nap or step outside for fresh air—it works wonders!
+        </p>
+        <div class="btn-group">
+            <a href="index.html" class="btn btn-success btn-custom">🔄 Retake Mood Quiz</a>
+            <button class="btn btn-warning btn-custom" data-bs-toggle="modal" data-bs-target="#surprise-button">
+                🎁 Surprise Me!
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="surprise-button">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content scary-modal">
+
+                <div class="modal-body p-0">
+                    <button type="button" data-bs-dismiss="modal">
+                        <img src="./images/surprise.jpg" alt="sweet surprise" class="scary-image">
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
