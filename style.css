@@ -9,17 +9,19 @@ input[type="radio"] {
     display: inline-block;
     position: relative;
     margin-right: 2%;
-  }
-  
-  /* When radio is checked, change color */
-  input[type="radio"]:checked {
-    background-color: white; /* Fill color */
-    border: 6px dashed red; /* Change border color */
-  }
+}
+
+/* When radio is checked, change color */
+input[type="radio"]:checked {
+    background-color: white;
+    /* Fill color */
+    border: 6px dashed red;
+    /* Change border color */
+}
 
 
-  
-  .happy-burst {
+
+.happy-burst {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,14 +59,17 @@ input[type="radio"] {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     50% {
         opacity: 1;
         transform: translateY(10px);
     }
+
     75% {
-      opacity: 0.5;
-      transform: translateY(10px);
-  }
+        opacity: 0.5;
+        transform: translateY(10px);
+    }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -77,6 +82,7 @@ input[type="radio"] {
         transform: translate(0, 0) scale(0.5);
         opacity: 1;
     }
+
     100% {
         transform: translate(var(--x), var(--y)) scale(1.5);
         opacity: 0;
@@ -84,13 +90,91 @@ input[type="radio"] {
 }
 
 /* Generate multiple confetti pieces with CSS */
-.confetti:nth-child(1) { --x: 100px; --y: -80px; background-color: red; animation-delay: 0s; }
-.confetti:nth-child(2) { --x: -120px; --y: 90px; background-color: blue; animation-delay: 0.5s; }
-.confetti:nth-child(3) { --x: 150px; --y: -70px; background-color: green; animation-delay: 1s; }
-.confetti:nth-child(4) { --x: -140px; --y: -100px; background-color: orange; animation-delay: 1.5s; }
-.confetti:nth-child(5) { --x: 200px; --y: 110px; background-color: pink; animation-delay: 2s; }
-.confetti:nth-child(6) { --x: -110px; --y: 100px; background-color: purple; animation-delay: 2.5s; }
-.confetti:nth-child(7) { --x: 90px; --y: -90px; background-color: cyan; animation-delay: 3s; }
-.confetti:nth-child(8) { --x: -150px; --y: 150px; background-color: magenta; animation-delay: 3.5s; }
-.confetti:nth-child(9) { --x: 170px; --y: -180px; background-color: brown; animation-delay: 4s; }
-.confetti:nth-child(10) { --x: -10px; --y: 200px; background-color: gray; animation-delay: 4.5s; }
+.confetti:nth-child(1) {
+    --x: 100px;
+    --y: -80px;
+    background-color: red;
+    animation-delay: 0s;
+}
+
+.confetti:nth-child(2) {
+    --x: -120px;
+    --y: 90px;
+    background-color: blue;
+    animation-delay: 0.5s;
+}
+
+.confetti:nth-child(3) {
+    --x: 150px;
+    --y: -70px;
+    background-color: green;
+    animation-delay: 1s;
+}
+
+.confetti:nth-child(4) {
+    --x: -140px;
+    --y: -100px;
+    background-color: orange;
+    animation-delay: 1.5s;
+}
+
+.confetti:nth-child(5) {
+    --x: 200px;
+    --y: 110px;
+    background-color: pink;
+    animation-delay: 2s;
+}
+
+.confetti:nth-child(6) {
+    --x: -110px;
+    --y: 100px;
+    background-color: purple;
+    animation-delay: 2.5s;
+}
+
+.confetti:nth-child(7) {
+    --x: 90px;
+    --y: -90px;
+    background-color: cyan;
+    animation-delay: 3s;
+}
+
+.confetti:nth-child(8) {
+    --x: -150px;
+    --y: 150px;
+    background-color: magenta;
+    animation-delay: 3.5s;
+}
+
+.confetti:nth-child(9) {
+    --x: 170px;
+    --y: -180px;
+    background-color: brown;
+    animation-delay: 4s;
+}
+
+.confetti:nth-child(10) {
+    --x: -10px;
+    --y: 200px;
+    background-color: gray;
+    animation-delay: 4.5s;
+}
+
+/* Initially disable the submit button */
+#submitBtn {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.6;
+    border: none;
+}
+
+/* Enable button only when all radio groups have a selected option */
+:has(input[name="ques1opt"]:checked) 
+:has(input[name="ques2opt"]:checked) 
+:has(input[name="ques3opt"]:checked) 
+:has(input[name="ques4opt"]:checked) ~.text-center #submitBtn {
+    background-color: red;
+    cursor: pointer;
+    opacity: 1;
+}
