@@ -56,6 +56,12 @@
 </div>
 
 <script>
+    document.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", function () {
+            document.getElementById("submitBtn").disabled = false;
+        });
+    });
+
     document.getElementById("submitBtn").addEventListener("click", function () {
         let moodScores = { bore: 0, happy: 0, tired: 0, sad: 0 };
         document.querySelectorAll("input[type='radio']:checked").forEach(input => {
